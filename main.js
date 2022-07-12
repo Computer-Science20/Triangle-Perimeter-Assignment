@@ -14,7 +14,7 @@ function btnClicked() {
   let AB = dist(xA, yA, xB, yB);
   let AC = dist(xA, yA, xC, yC);
   let BC = dist(xB, yB, xC, yC);
-  let ABC = dist(xA, yA, xB, yB) + dist(xA, yA, xC, yC) + dist(xB, yB, xC, yC);
+  let ABC = AB + AC + BC;
   console.log(AB,AC, BC, ABC);
 
   // Output the Results
