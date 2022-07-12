@@ -1,29 +1,32 @@
-//Triangle Perimeter
-//Variables to store HTML
-	let x1Input = document.getElementById("x1-input");
-	let y1Input = document.getElementById("y1-input");
-    let x2Input = document.getElementById("x2-input");
-    let y2Input = document.getElementById("y2-input");
-    let x3Input = document.getElementById("x3-input");
-    let y3Input = document.getElementById("y3-input");
-    let outputSpan = document.getElementById("output");
-    let perimeter = document.getElementById("perimeter");
+document.getElementById("btn").addEventListener("click", btnClicked);
 
-    //Get the input values
-	let x1 = +x1Input;
-	let y1 = +y1Input;
-	let x2 = +x2Input;
-    let y2 = +y2Input;
-	let x3 = +x3Input;
-	let y3 = +y3Input;
-  
-	// Calculate the side lengths & perimeter
-    function calcBtn() {
-	let AB = dist(x1, y1, x2, y2);
-	let AC = dist(x1, y1, x3, y3);
-	let BC = dist(x2, y2, x3, y3);
-	return perimeter = AB + AC + BC;
-    }
+function btnClicked() {
+  // Get the Input Values
+  let xA = +document.getElementById("xA-in").value;
+  let yA = +document.getElementById("yA-in").value;
+  let xB = +document.getElementById("xB-in").value;
+  let yB = +document.getElementById("yB-in").value;
+  let xC = +document.getElementById("xC-in").value;
+  let yC = +document.getElementById("yC-in").value;
+  console.log(xA, yA, xB, yB, xC, yC);
 
-	// Output the results
-        outputSpan.innerHTML = perimeter
+  // Calculate the side lengths and the perimeter
+  let AB = dist(xA, yA, xB, yB);
+  let AC = dist(xA, yA, xC, yC);
+  let BC = dist(xB, yB, xC, yC);
+  let ABC = dist(xA, yA, xB, yB) + dist(xA, yA, xC, yC) + dist(xB, yB, xC, yC);
+  console.log(AB,AC, BC, ABC);
+
+  // Output the Results
+  document.getElementById("ab-out").innerHTML = AB;
+  document.getElementById("ac-out").innerHTML = AC;
+  document.getElementById("bc-out").innerHTML = BC;
+  document.getElementById("abc-out").innerHTML = ABC;
+}
+
+function dist(x1, y1, x2, y2) {
+  let rise = y2 - y1;
+  let run = x2 - x1;
+  return Math.sqrt(rise ** 2 + run ** 2);
+}
+
